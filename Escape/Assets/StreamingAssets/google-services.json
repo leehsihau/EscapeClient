@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "239461510231",
+    "firebase_url": "https://escape-14d86.firebaseio.com",
+    "project_id": "escape-14d86",
+    "storage_bucket": "escape-14d86.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:239461510231:android:eb40d519669b1ce3",
+        "android_client_info": {
+          "package_name": "com.cs307.escape"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "239461510231-89gclb590jnterra7sgvbhvpal9lg14g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAgK2X6LcdV2f1uRQP8NW_VKjMLO1CZM0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
