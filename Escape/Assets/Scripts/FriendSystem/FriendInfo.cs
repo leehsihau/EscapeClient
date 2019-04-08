@@ -6,7 +6,7 @@ public class FriendInfo
 {
 
     public string Name = "#";
-    public bool IsOnline = false;
+    public bool IsOnline = true;
     public int Room = 0;
     
 }

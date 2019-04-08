@@ -139,7 +139,11 @@ public class FriendListUI : MonoBehaviour
                 break;
             }
         }
-
+        if (name.Equals(PrivateChat.name))
+        {
+            PrivateChat.name = "Loading...";
+            PrivateChat.nameChanged = true;
+        }
     }
 
     public void ChangeOnlineFirst()
@@ -279,9 +283,5 @@ public class FriendListUI : MonoBehaviour
         return false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

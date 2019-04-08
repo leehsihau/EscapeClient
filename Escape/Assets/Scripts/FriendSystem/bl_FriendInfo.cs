@@ -11,7 +11,6 @@ public class bl_FriendInfo : MonoBehaviour {
     [Space(5)]
     public Color OnlineColor = new Color(0, 0.9f, 0, 0.9f);
     public Color OffLineColor = new Color(0.9f, 0, 0, 0.9f);
-
     private int roomName = -1;
     public string cacheName;
 
@@ -88,6 +87,8 @@ public class bl_FriendInfo : MonoBehaviour {
             FriendListUI manager = FindObjectOfType<FriendListUI>();
             manager.RemoveFriend(NameText.text);
         }
+        PrivateChat.name = "Loading...";
+        PrivateChat.nameChanged = true;
     }
 
     public void Chat()
@@ -98,7 +99,10 @@ public class bl_FriendInfo : MonoBehaviour {
             FriendListUI.OnRemoveFriend(cacheName);
             FriendListUI.friendListUpdated = true;
         }
-        //FriendListUI manager = FindObjectOfType<FriendListUI>();
-        //manager.Chat(NameText.text);
+        else
+        {
+            PrivateChat.name = cacheName;
+            PrivateChat.nameChanged = true;
+        }
     }
 }

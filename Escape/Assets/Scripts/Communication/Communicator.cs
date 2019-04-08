@@ -250,6 +250,8 @@ public class Communicator : MonoBehaviour
                 case 26:
                     break;
                 case 27:
+                    PrivateChat.newMessageText = "From " + resps[1] + ": " + resps[2];
+                    PrivateChat.newMessage = true;
                     break;
                 case 28:
                     break;
@@ -269,6 +271,16 @@ public class Communicator : MonoBehaviour
                 case 34:
                     break;
                 case 35:
+                    if (resps[1].Equals("S"))
+                    {
+                        PrivateChat.newMessageText = "Message sent.";
+                        PrivateChat.newMessage = true;
+                    }
+                    else
+                    {
+                        PrivateChat.newMessageText = "Failed to send message.";
+                        PrivateChat.newMessage = true;
+                    }
                     break;
                 case 36:
                     break;

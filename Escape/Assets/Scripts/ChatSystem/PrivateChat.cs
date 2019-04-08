@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PublicChat : MonoBehaviour
+public class PrivateChat : MonoBehaviour
 {
 
     private bool windowUp = false;
@@ -11,16 +11,21 @@ public class PublicChat : MonoBehaviour
     [SerializeField] private Sprite UpArrowSprite;
     [SerializeField] private Sprite BottomArrowSprite;
     [SerializeField] private GameObject chatPanel, textObject, input;
-
+    [SerializeField] private Text nameText;
     public List<Message> messageList = new List<Message>();
     public static bool newMessage = false;
     public static string newMessageText;
-    public void sendPublicMsg()
+
+    public static string name;
+    public static bool nameChanged = false;
+
+    public void sendPrivateMsg()
     {
-        Communicator.sendMessage("00005#" + input.GetComponent<Text>().text);
+        if (!nameText.GetComponent<Text>().text.Equals("Loading...")) Communicator.sendMessage("00011#" + nameText.GetComponent<Text>().text + "#" + input.GetComponent<Text>().text);
+        else displayPrivateMsg("You have to select a friend!");
     }
 
-    public void displayPublicMsg(string msg)
+    public void displayPrivateMsg(string msg)
     {
         if (messageList.Count >= 50)
         {
@@ -43,14 +48,14 @@ public class PublicChat : MonoBehaviour
         {
 
             ArrowImage.sprite = BottomArrowSprite;
-            fui.anchoredPosition = new Vector2(0f, 330f);
+            fui.anchoredPosition = new Vector2(-450f, 330f);
 
         }
         else
         {
-            
+
             ArrowImage.sprite = UpArrowSprite;
-            fui.anchoredPosition = new Vector2(0f, 0f);
+            fui.anchoredPosition = new Vector2(-450f, 0f);
 
         }
 
@@ -62,7 +67,12 @@ public class PublicChat : MonoBehaviour
         {
             newMessage = false;
             Debug.Log(newMessageText);
-            displayPublicMsg(newMessageText);
+            displayPrivateMsg(newMessageText);
+        }
+        if (nameChanged)
+        {
+            nameChanged = false;
+            nameText.GetComponent<Text>().text = name;
         }
     }
 }
